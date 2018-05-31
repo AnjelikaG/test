@@ -1,27 +1,25 @@
-var budget = prompt("Ваш бюджет на месяц?", "1000");
-	console.log(budget);
+var budgetMonth = prompt("Ваш бюджет на месяц?", "60000");
+	console.log(budgetMonth);
 var namestore = prompt("Название вашего магазина?", "Bershka");
 	console.log(namestore);
 
 var mainList = {
- 	budget: 1000,
+ 	budget: 60000,
  	name: "Bershka",
  	shopGoods: [],
- 	employers: {name: "Anton","Ira"},
+ 	employers: [{name: "Anton"}, {name: "Ira"}],
  	open: true
 }
 	console.log(mainList);
 
-shopGoods = [
-	prompt("Какой тип товаров будем продавать?", "Одежда"),
- 	prompt("Какой тип товаров будем продавать?", "Одежда"),
- 	prompt("Какой тип товаров будем продавать?", "Одежда")
-];
+mainList.shopGoods[0] = prompt("Какой тип товаров будем продавать?",);
+mainList.shopGoods[1] = prompt("Какой тип товаров будем продавать?",);
+mainList.shopGoods[2] = prompt("Какой тип товаров будем продавать?",);
 
-var budgetMonthMoney = 1000,
- 	budgetDaysMonth = 30,
- 	budgetDay = budgetMonthMoney/budgetDaysMonth;
- 	alert("Ваш бюджет на день?" +budgetDay);
+var budgetMonth = 60000,
+    budgetDaysMonth = 30,
+    budgetDay = budgetMonth / budgetDaysMonth;
+ 	alert("Ваш бюджет на день " +budgetDay);
 
 
 
