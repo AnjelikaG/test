@@ -12,11 +12,16 @@ let mainList = {
 }
 	console.log(mainList);
 
-// Цикл for
 // for(let i = 0; i < 5; i++) {
 // 	let a = prompt("Какой тип товаров будем продавать?");
-// 	mainList.shopGoods[i] = a;
+// 	if ((typeof(a)) === 'string' && (typeof(a)) === null && a != '' && a.length < 50 ){
+// 		console.log('все верно!');
+// 		mainList.shopGoods[i] = a;
+// 	} else {
+		
+// 	}
 // }	
+	
 
 // Цикл wile
 // let i = 0;
@@ -39,44 +44,44 @@ let mainList = {
 // alert(mainList.budget/30);
 
 // / Задание 1
-function calculateDailyBudget(shop) {
-	alert(shop.budget/30);
-}
-calculateDailyBudget(mainList);
+// function calculateDailyBudget(shop) {
+// 	alert(shop.budget/30);
+// }
+// calculateDailyBudget(mainList);
 
 // Задание 2
-function calculateDiscount (price, discount) {
+// function calculateDiscount (price, discount) {
 
-	if (discount === true) {
-		return price * 0.8;
-	} else {
-		return price;
-	}
-}
-calculateDiscount(100, true);
+// 	if (discount === true) {
+// 		return price * 0.8;
+// 	} else {
+// 		return price;
+// 	}
+// }
+// calculateDiscount(100, true);
 
 
 // Задание 3
 
-function addEmployer(shop, number, name) {
-	shop.employers[number] = name;
-}
-addEmployer(mainList, '1', 'Ira')
+// function addEmployer(shop, number, name) {
+// 	shop.employers[number] = name;
+// }
+// addEmployer(mainList, '1', 'Ira')
 
 
 // Задание 4 
 
-function addEmployer(shop, number, name) {
-	shop.employers[number] = name;
-}
-var name1 = prompt("Имя сотрудника ?");
-addEmployer(mainList, '1', name);
-var name2 = prompt("Имя сотрудника ?");
-addEmployer(mainList, '2', name);
-var name3 = prompt("Имя сотрудника ?");
-addEmployer(mainList, '3', name);
-var name4 = prompt("Имя сотрудника ?");
-addEmployer(mainList, '4', name);
+// function addEmployer(shop, number, name) {
+// 	shop.employers[number] = name;
+// }
+// var name1 = prompt("Имя сотрудника ?");
+// addEmployer(mainList, '1', name);
+// var name2 = prompt("Имя сотрудника ?");
+// addEmployer(mainList, '2', name);
+// var name3 = prompt("Имя сотрудника ?");
+// addEmployer(mainList, '3', name);
+// var name4 = prompt("Имя сотрудника ?");
+// addEmployer(mainList, '4', name);
 
 
 
