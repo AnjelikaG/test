@@ -1,13 +1,13 @@
 let open = document.getElementById('open-btn'),
 	name_value = document.getElementsByClassName('name-value')[0],
  	budget_value = document.getElementsByClassName('budget-value')[0],
- 	goods_value = document.getElementsByClassName('.goods-value'),
- 	items_value = document.getElementsByClassName('.items-value')[0],
- 	employers_value = document.getElementsByClassName('.employers-value')[0],
- 	discount_value = document.getElementsByClassName('.discount-value')[0],
- 	isopen_value = document.getElementsByClassName('.isopen-value')[0],
+ 	goods_value = document.getElementsByClassName('goods-value')[0],
+ 	items_value = document.getElementsByClassName('items-value')[0],
+ 	employers_value = document.getElementsByClassName('employers-value')[0],
+ 	discount_value = document.getElementsByClassName('discount-value')[0],
+ 	isopen_value = document.getElementsByClassName('isopen-value')[0],
 
- 	goods_item = document.getElementsByClassName('goods-item'),
+ 	goods_items = document.getElementsByClassName('goods-item'),
  	goods_btn = document.getElementsByTagName('button')[1],
  	budget_btn = document.getElementsByTagName('button')[2],
  	employers_btn = document.getElementsByTagName('button')[3],
@@ -18,7 +18,18 @@ let open = document.getElementById('open-btn'),
 
 
 let money,
-    price;
+    price,
+    nameShop;
+
+const mainList = {
+	budget: money,
+ 	shopName: nameShop,
+ 	shopGoods: [],
+ 	employers: {},
+ 	open: true,
+ 	discount: false,
+ 	shopItems: [],
+};
 
 open.addEventListener('click', () => {
 	money = prompt('Ваш бюджет?','');
@@ -33,16 +44,17 @@ open.addEventListener('click', () => {
 });    
 
 goods_btn.addEventListener('click', () => {
-	for (let i = 0; i < goods_item.length; i++) {
-		let a = goods_item[i].value;
+	for (let i = 0; i < goods_items.length; i++) {
+		let a = goods_items[i].value;
 
-			 if ((typeof(a)) === 'string' && (typeof(a)) != null && a.length < 50) {
-			 	console.log("все верно");
-			 	mainList.shopGoods[i] = a;
-			 	
-			 }
-			 goods_value.textContent = mainList.shopGoods;
+		if ((typeof(a)) === 'string' && (typeof(a)) != null && a.length < 50) {
+		 	console.log("все верно");
+		 	mainList.shopGoods[i] = a;
+		}
 	}
+	console.log(goods_value);
+	goods_value.textContent = mainList.shopGoods.join(',');
+
 });
 
 
@@ -94,26 +106,41 @@ employers_btn.addEventListener('click', () => {
 });
 
 discount_value.addEventListener('click', () => {
-	if (mainList.discount = true) {
-		discount_value.style.backgroundColor = 'green'
-	} else {
-		discount_value.style.backgroundColor = 'red'
-	};
+	discount_value.style.backgroundColor = mainList.discount ? 'green' : 'red';
 
-	if (mainList.discount == true) {
- 			price = (price/100)*80;
- 		}
+	let price = 50;
+
+	price = mainList.discount === true ? price * 0.8 : price;
+
+	discount_value.textContent = price;
+
 });
 
-const mainList = {
-	budget: money,
- 	shopName: name,
- 	shopGoods: [],
- 	employers: {},
- 	open: false,
- 	discount: false,
- 	shopItems: [],
-};
+function onGoodsItemInput() {
+	console.log(goods_items[0].value);
+	if (goods_items[0].value != "" || 
+		goods_items[1].value != "" || 
+		goods_items[2].value != "" || 
+		goods_items[3].value != "") {
+
+		goods_btn.removeAttribute('disabled');
+	} else {
+		goods_btn.setAttribute('disabled', 'disabled');
+	}
+}
+
+goods_items[0].addEventListener('input', onGoodsItemInput);
+goods_items[1].addEventListener('input', onGoodsItemInput);
+goods_items[2].addEventListener('input', onGoodsItemInput);
+goods_items[3].addEventListener('input', onGoodsItemInput);
+
+goods_btn.setAttribute('disabled', 'disabled');
+budget_btn.setAttribute('disabled', 'disabled');
+employers_btn.setAttribute('disabled', 'disabled');
+
+
+
+
 
 
 
