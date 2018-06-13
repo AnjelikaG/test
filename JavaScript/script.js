@@ -9,40 +9,49 @@ let mainList = {
  	shopGoods: [],
  	employers: {},
  	open: true
-}
-	console.log(mainList);
+ 	shopItems: []
+ 	chooseShopItems: function () {
+ 		let items = prompt('Перечислите тип товара', '');
 
-// for(let i = 0; i < 5; i++) {
-// 	let a = prompt("Какой тип товаров будем продавать?");
-// 	if ((typeof(a)) === 'string' && (typeof(a)) === null && a != '' && a.length < 50 ){
-// 		console.log('все верно!');
-// 		mainList.shopGoods[i] = a;
-// 	} else {
+ 		if (typeof(items) == "string" && items) {
+ 			mainList.shopItems = items.split(",");
+ 			this.addLastItem();
+	 	} else {
+	 		this.chooseShopItems();
+	 	}
+ 	}, 
+ 	addLastItem: function() {
+ 		let item = prompt("Еще один тип товара","");
+ 			
+	 	if(typeof(item) == "string" && item){
+	 		mainList.shopItems.push(item);
+	 		mainList.shopItems.sort();
+	 	} else {
+	 		this.addLastItem();
+	 	}
+ 	},
+
+ 	displayShopItems: function() {
+	 this.shopItems.forEach(function(shopItems, i, item) {
+	 	alert()
+	 })
+	}
+};
+
+}
+
+for(let i = 0; i < 5; i++) {
+	let a = prompt("Какой тип товаров будем продавать?");
+	if ((typeof(a)) === 'string' && (typeof(a)) === null && a != '' && a.length < 50 ){
+		console.log('все верно!');
+		mainList.shopGoods[i] = a;
+	} else {
 		
-// 	}
-// }	
+	}
+}	
 	
 
-// Цикл wile
-// let i = 0;
-// while (i< 4) {
-// 	let a = prompt("Какой тип товаров будем продавать?");
-// 	mainList.shopGoods[i] = a;
-// 	i++;
-// }
-
-// Цикл do while
-// let i = 0;
-// do {
-// 	let a = prompt("Какой тип товаров будем продавать?");
-// 	mainList.shopGoods[i] = a;
-// 	i++;
-// }
-// while (i < 4);
-
-
-// alert(mainList.budget/30);
-
+// LESSON 3
 // / Задание 1
 // function calculateDailyBudget(shop) {
 // 	alert(shop.budget/30);
@@ -82,6 +91,7 @@ let mainList = {
 // addEmployer(mainList, '3', name);
 // var name4 = prompt("Имя сотрудника ?");
 // addEmployer(mainList, '4', name);
+
 
 
 
