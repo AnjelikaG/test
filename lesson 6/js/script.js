@@ -39,9 +39,11 @@ open.addEventListener('click', () => {
 	}
 	budget_value.textContent = money;
 
-	name_value.textContent = prompt("Название вашего магазина?", "").toUpperCase();
+	name_value.textContent = prompt("Название вашего магазина?", "").toUpperCase();  
 
-});    
+});  
+
+
 
 goods_btn.addEventListener('click', () => {
 	for (let i = 0; i < goods_items.length; i++) {
